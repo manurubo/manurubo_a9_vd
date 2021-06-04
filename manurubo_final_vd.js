@@ -1,11 +1,11 @@
 var cat_seleccionada;
 
 async function draw_everything(){
-  data_circle = await d3.json("https://manurubo.github.io/practicafinal/Datasets_Generados/partidas_equipo.json")
-  data_bars = await d3.json("https://manurubo.github.io/practicafinal/Datasets_Generados/campeones_equipo.json")
-  data_linea = await d3.json("https://manurubo.github.io/practicafinal/Datasets_Generados/winrate.json")
-  data_parallel_set = await d3.json("https://manurubo.github.io/practicafinal/Datasets_Generados/objetivos_gana.json")
-  data_parallel_coord = await d3.csv("https://manurubo.github.io/practicafinal/Datasets_Generados/parallel_cords.csv", d3.autoType)
+  data_circle = await d3.json("https://manurubo.github.io/practicafinal/DatasetsGenerados/partidas_equipo.json")
+  data_bars = await d3.json("https://manurubo.github.io/practicafinal/DatasetsGenerados/campeones_equipo.json")
+  data_linea = await d3.json("https://manurubo.github.io/practicafinal/DatasetsGenerados/winrate.json")
+  data_parallel_set = await d3.json("https://manurubo.github.io/practicafinal/DatasetsGenerados/objetivos_gana.json")
+  data_parallel_coord = await d3.csv("https://manurubo.github.io/practicafinal/DatasetsGenerados/parallel_cords.csv", d3.autoType)
 
 
 
