@@ -4,7 +4,11 @@
     <meta charset="utf-8">
     <title></title>
     <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-sankey/0.12.3/d3-sankey.min.js"></script>
+
     <script src="final.js"></script>
+
+    <link rel="stylesheet" href="manurubo_final_vd.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!-- jQuery and JS bundle w/ Popper.js -->
@@ -15,28 +19,84 @@
   <link rel="stylesheet" href="manurubo_a8_vd.css">
 
   </head>
-  <body>
-    <h1 class="text-center pt-5"><b>Visualización de Datos FINAL</b></h1>
-    <hr class="pb-5">
+  <body style="background-color:#282C34;">
+    <h1 style="color:white" class="text-center pt-5"><b>DataViz: ¿Cómo juegan al League Of Legends los equipos profesionales?</b></h1>
+    <hr  class="new1 pb-2">
     <div class="container-fluid">
+      <div class="row">
+        <div class="container-fluid col-sm-12">
+            <h2 class="text-center pb-4" style="color:white" id="equipo_seleccionado"></h2>
+        </div>
+
+      </div>
       <div class="row">
         <div class="container-fluid col-sm-1">
         </div>
-        <div class="container-fluid col-sm-5" >
-          <div class="jumbotron m-0 p-3 container-fluid col-sm-12">
+        <div class="container-fluid col-sm-4" >
+
+            <h4 style="color:white">Partidas jugadas por torneo y equipo</h4>
+            <p style="color:white">Selecciona un torneo o equipo para filtrar el resto de graficas<p>
             <div id="circulo">
             </div>
-          </div>
+
+        </div>
+        <div class="container-fluid col-sm-6">
+          <h4 style="color:white">Campeones más jugados (y su winrate)</h4>
+          <p style="color:white">En una partida, cada equipo escoge 5 campeones para jugar.
+            Suele ser importante escoger un campeón que se adapta el estilo de juego del equipo y que consigue muchas victorias.
+            Por esto, podemos ver los campeones más jugados y el ratio de partidas ganadas para la selección realizada.<p>
+            <div class="p-1"  id="barras">
+            </div>
+            <p style="color:white"><input id="slider" type="range" min="1" max="20" step="1" value="10" oninput="slider_selected.value = slider.value">
+            <output style="color:white" name="slider_selected" id="slider_selected">10 </output> Campeones</p>
+        </div>
+        <div class="container-fluid col-sm-1">
+        </div>
+      </div>
+
+      <div class="row pt-3">
+        <div class="container-fluid col-sm-1">
+        </div>
+        <div class="container-fluid col-sm-5" >
+          <h4 style="color:white">Win rate por lado elegido a lo largo del tiempo</h4>
+          <p style="color:white">Cada equipo tiene su base en un lado del mapa.
+            El mapa es asimétrico y la elección del lado condiciona los objetivos cercanos a cada equipo, los caminos de la jungla y el orden de seleccionar campeones.
+            Es importante escoger el lado del mapa acorde a los objetivos que quiere conseguir el equipo en la partida o a la selección de campeones que quiere realizar,
+            adelantandose al rival o escogiendo en base a lo que ha escogido el rival.
+          <p>
+            <div id="linea">
+            </div>
         </div>
         <div class="container-fluid col-sm-5">
-          <div class="jumbotron m-0 p-3 container-fluid col-sm-12">
-            <div id="barras">
-            </div>
+          <h4 style="color:white">Objetivos principales que indican victoria</h4>
+          <p style="color:white">Para conseguir la victoria los equipos tienen que conseguir objetivos globales en el mapa además de asesinatos.
+            Respecto a los objetivos más importantes que se suelen valorar, encontramos el primer asesinato, la primera torre destruida y realizar el barón nashor.
+            En esta gráfica podemos encontrar la relación entre ganar la partida o perderla y conseguir estos objetivos.
+          <p>
+          <div id="parallel_set">
           </div>
         </div>
         <div class="container-fluid col-sm-1">
         </div>
-
+      </div>
+      <div class="row pt-3">
+        <div class="container-fluid col-sm-1">
+        </div>
+        <div class="container-fluid col-sm-10">
+          <h4 style="color:white">Perfil numérico del equipo</h4>
+          <p style="color:white">Hay muchos estilos de juego, algunos equipos se centran en acabar con el rival muy rápido, otros esperan sus oportunidades.
+            Algunos equipos buscan ventaja de asesinatos sobre el rival, mientras que otros se centran en las torres, y otros en aspectos secundarios como la visión,
+            el control de adversario o las curaciones pueden ser clave en el estilo de juego de un equipo ganador.
+            En esta gráfica se visualiza el perfil de cada equipo o una liga en concreto al seleccionarlo en la visualizar circular packing.
+        </p>
+          <p>
+          <div id="parallel_coord">
+          </div>
+        </div>
+        <div class="container-fluid col-sm-1">
+        </div>
+      </div>
+    </div>
 
   </body>
 

@@ -1,0 +1,42 @@
+p {
+    font-size: 10px;
+    text-align: justify;
+}
+
+a {
+  font-size: 10px;
+}
+
+.highlighted {
+    background-color: rgba(255,255,0,.5);
+}
+
+hr.new1 {
+  border-top: 1px solid white;
+}
+
+.ejey line{
+  stroke: white;
+}
+
+.ejey path{
+  stroke: white;
+}
+
+.ejey text{
+  fill: white;
+  font-size: 15px;
+}
+
+.ejex line{
+  stroke: white;
+}
+
+.ejex path{
+  stroke: white;
+}
+
+.ejex text{
+  fill: white;
+  font-size: 15px;
+}
