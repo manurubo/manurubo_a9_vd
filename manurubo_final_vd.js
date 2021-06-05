@@ -1,11 +1,11 @@
 var cat_seleccionada;
 
 async function draw_everything(){
-  data_circle = await d3.json("https://manurubo.github.io/practicafinal/DatasetsGenerados/partidas_equipo.json")
-  data_bars = await d3.json("https://manurubo.github.io/practicafinal/DatasetsGenerados/campeones_equipo.json")
-  data_linea = await d3.json("https://manurubo.github.io/practicafinal/DatasetsGenerados/winrate.json")
-  data_parallel_set = await d3.json("https://manurubo.github.io/practicafinal/DatasetsGenerados/objetivos_gana.json")
-  data_parallel_coord = await d3.csv("https://manurubo.github.io/practicafinal/DatasetsGenerados/parallel_cords.csv", d3.autoType)
+  data_circle = await d3.json("https://manurubo.github.io/manurubo_a9_vd/DatasetsGenerados/partidas_equipo.json")
+  data_bars = await d3.json("https://manurubo.github.io/manurubo_a9_vd/DatasetsGenerados/campeones_equipo.json")
+  data_linea = await d3.json("https://manurubo.github.io/manurubo_a9_vd/DatasetsGenerados/winrate.json")
+  data_parallel_set = await d3.json("https://manurubo.github.io/manurubo_a9_vd/DatasetsGenerados/objetivos_gana.json")
+  data_parallel_coord = await d3.csv("https://manurubo.github.io/manurubo_a9_vd/DatasetsGenerados/parallel_cords.csv", d3.autoType)
 
 
 
