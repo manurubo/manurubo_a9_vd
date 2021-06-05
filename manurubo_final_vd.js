@@ -427,9 +427,9 @@ function drawParallel_set(container, data_parallel_sets){
       for (const d of data_ps) {
         const names = prefix.map(k => d[k]);
         const key = JSON.stringify(names);
-        const value = d.value || 1;
+        const value = d.value;
         let link = linkByKey.get(key);
-        if (link) { link.value += value; continue; }
+        if (link ) { link.value += value; continue; }
         link = {
           source: indexByKey.get(JSON.stringify([a, d[a]])),
           target: indexByKey.get(JSON.stringify([b, d[b]])),
@@ -493,12 +493,10 @@ function drawParallel_set(container, data_parallel_sets){
 
     parallel_set.update = function(datos){
       var graph_update = graph_f(datos,keys)
-      console.log(graph_update)
       var {nodes, links} = sankey({
         nodes: graph_update.nodes.map(d => Object.assign({}, d)),
         links: graph_update.links.map(d => Object.assign({}, d))
       });
-      console.log(nodes)
 
       var cuadrados = svg.select('g').selectAll("rect").data(nodes)
       cuadrados.join("rect").transition().duration(1500)
@@ -545,13 +543,12 @@ function drawParallel_set(container, data_parallel_sets){
 
 function drawParallel_coord(container, data){
   const keys = data.columns.slice(1)
-  console.log(keys)
   const margin = ({top: 20, right: 40, bottom: 20, left: 40})
 
   const height = 500
 
   const width = 1400
-  const x = new Map(Array.from(keys, key => [key, d3.scaleLinear(d3.extent(data, d => d[key]), [margin.left, height - margin.right])]))
+  const x = new Map(Array.from(keys, key => [key, d3.scaleLinear(d3.extent(data, d => d[key]), [ height - margin.right,margin.left])]))
   const y = d3.scalePoint(keys, [margin.top, width - margin.bottom])
 
   const line = d3.line()
@@ -559,7 +556,6 @@ function drawParallel_coord(container, data){
     .y(([key, value]) => x.get(key)(value))
     .x(([key]) => y(key))
 
-  console.log(data)
 
   const svg = d3.select(container)
       .append("svg")
